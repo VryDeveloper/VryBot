@@ -1,0 +1,15 @@
+services:
+  vrybot:
+    build: .
+    restart: unless-stopped
+    env_file: .env
+    environment:
+      # Persist memory across restarts by default when running in Docker
+      MEMORY_BACKEND: ${MEMORY_BACKEND:-sqlite}
+    volumes:
+      - vrybot-data:/app/data
+      # Mount your personas so you can edit them without rebuilding
+      - ./personas:/app/personas:ro
+
+volumes:
+  vrybot-data:

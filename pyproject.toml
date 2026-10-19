@@ -1,0 +1,20 @@
+[project]
+name = "vrybot"
+version = "2.0.0"
+description = "A configurable, personality-driven Discord chatbot that runs on free LLM tiers."
+readme = "README.md"
+license = { file = "LICENSE" }
+requires-python = ">=3.10"
+authors = [{ name = "VryDeveloper" }]
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+testpaths = ["tests"]
+pythonpath = ["."]
+
+[tool.ruff]
+line-length = 120
+target-version = "py310"
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "B", "UP"]
